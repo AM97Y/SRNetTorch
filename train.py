@@ -93,7 +93,8 @@ def clip_grad(model):
 def main():
     os.environ['CUDA_VISIBLE_DEVICES'] = str(cfg.gpu)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    torch.cuda.set_per_process_memory_fraction(0.7, device=device)
+    print(device)
+    torch.cuda.set_per_process_memory_fraction(0.7, device=cfg.gpu)
 
     train_name = get_train_name()
 
@@ -350,7 +351,7 @@ def plot(x, y, name):
     plt.title(name)
     plt.grid(True)
     # plt.show()
-    plt.save(f'{name}.jpg')
+    plt.savefig(f'{name}.jpg')
 
 
 if __name__ == '__main__':

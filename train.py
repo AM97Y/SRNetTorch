@@ -346,12 +346,13 @@ def main():
 
 
 def plot(x, y, name):
-    print(x, y)
+    fig = plt.figure()
     plt.plot(y, x, 'r')
     plt.title(name)
     plt.grid(True)
     # plt.show()
     plt.savefig(f'{name}.jpg')
+    fig.clear()
 
 
 if __name__ == '__main__':
